@@ -8,6 +8,7 @@ import {
   extensionPath,
 } from "@/lib/extensions";
 import { ActionLink, Eyebrow, Icon } from "@/components/ui";
+import { site, contactHref } from "@/lib/site";
 import { CopyPolicyLink } from "@/components/copy-link";
 export function generateStaticParams() {
   return extensions.map(({ slug }) => ({ slug }));
@@ -19,6 +20,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const extension = findExtension((await params).slug);
   return {
+    alternates: extension
+      ? { canonical: `/privacy/${extension.slug}` }
+      : undefined,
     title: extension ? `${extension.name} Privacy Policy` : "Policy not found",
     description: extension
       ? `Data handling, storage, permissions, and privacy choices for ${extension.name}.`
@@ -47,7 +51,10 @@ export default async function PrivacyPolicy({
         <div>
           <Eyebrow>Privacy policy</Eyebrow>
           <h1>{extension.name}</h1>
-          <p>Effective {effectiveDate} · Extension version 1.0.0</p>
+          <p>
+            Effective {effectiveDate} · Extension version{" "}
+            {site.extensionVersion}
+          </p>
         </div>
       </div>
       <div className="policy-layout">
@@ -157,16 +164,23 @@ export default async function PrivacyPolicy({
             <Eyebrow>07 / Contact</Eyebrow>
             <h2>Questions about your privacy?</h2>
             <p>
-              Contact the publisher through the Modulus Tools GitHub support
-              page. Please avoid posting sensitive personal information in
-              public support requests.
+              Contact Modulus Tools at {site.supportEmail}. If you email us, we
+              receive the information you choose to include so we can respond.
+              This correspondence is separate from the extension’s local data
+              processing. Do not send passwords, private recordings, or
+              sensitive browsing content.
             </p>
             <ActionLink
-              href="https://github.com/themrsami/modulustools/issues"
+              href={contactHref(`${extension.name} privacy question`)}
               variant="secondary"
             >
-              Contact the publisher <Icon name="arrow" />
+              Email the publisher <Icon name="arrow" />
             </ActionLink>
+            <p>
+              <ActionLink href="/privacy/website" variant="text">
+                How we handle contact emails <Icon name="arrow" />
+              </ActionLink>
+            </p>
           </section>
           <div className="policy-end">
             <span>End of policy · {effectiveDate}</span>

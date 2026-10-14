@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandMark, Icon } from "./ui";
+import { site, contactHref } from "@/lib/site";
 export function SiteHeader() {
   return (
     <header className="site-header">
@@ -14,14 +15,9 @@ export function SiteHeader() {
         <nav aria-label="Main navigation">
           <Link href="/#extensions">Extensions</Link>
           <Link href="/privacy">Privacy</Link>
-          <Link
-            href="https://github.com/themrsami/modulustools/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="support-link"
-          >
-            Get in touch <Icon name="arrow" />
-            <span className="sr-only"> (opens in a new tab)</span>
+          <Link href="/support">Support</Link>
+          <Link href="/build-an-extension" className="support-link">
+            Build with us <Icon name="arrow" />
           </Link>
         </nav>
       </div>
@@ -45,18 +41,15 @@ export function SiteFooter() {
           <nav aria-label="Footer navigation">
             <Link href="/#extensions">The collection</Link>
             <Link href="/privacy">Privacy policies</Link>
-            <Link
-              href="https://github.com/themrsami/modulustools/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Support<span className="sr-only"> (opens in a new tab)</span>
-            </Link>
+            <Link href="/build-an-extension">Custom extensions</Link>
+            <Link href="/support">Support</Link>
+            <Link href="/privacy/website">Website privacy</Link>
+            <a href={contactHref()}>{site.supportEmail}</a>
           </nav>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Modulus Tools</span>
-          <span>Made with purpose. Built for your browser.</span>
+          <span>© 2026 Modulus Tools. All rights reserved.</span>
+          <span>Independent tools. Not affiliated with Google.</span>
         </div>
       </div>
     </footer>

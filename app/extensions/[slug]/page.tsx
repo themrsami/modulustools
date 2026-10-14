@@ -15,6 +15,9 @@ export async function generateMetadata({
   return {
     title: extension?.name || "Extension not found",
     description: extension?.description,
+    alternates: extension
+      ? { canonical: `/extensions/${extension.slug}` }
+      : undefined,
   };
 }
 export default async function ExtensionPage({
@@ -56,6 +59,9 @@ export default async function ExtensionPage({
           <div className="detail-actions">
             <ActionLink href={privacyPath(extension.slug)} variant="primary">
               <Icon name="shield" /> Read privacy policy <Icon name="arrow" />
+            </ActionLink>
+            <ActionLink href="/support" variant="text">
+              Get support <Icon name="arrow" />
             </ActionLink>
           </div>
         </div>

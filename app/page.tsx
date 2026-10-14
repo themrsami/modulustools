@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 import { Catalog } from "@/components/catalog";
 import { BrowserPreview } from "@/components/browser-preview";
 import { ActionLink, Eyebrow, Icon } from "@/components/ui";
@@ -47,6 +49,38 @@ export default function Home() {
         </div>
       </div>
       <Catalog />
+      <section
+        className="build-callout container"
+        aria-labelledby="build-title"
+      >
+        <div>
+          <Eyebrow>Modulus Tools studio</Eyebrow>
+          <h2 id="build-title">
+            Your idea.
+            <br />
+            <em>Your own extension.</em>
+          </h2>
+          <p>
+            A repetitive task, a missing feature, a better way to work. Let’s
+            turn it into a focused Chrome extension for you or your team.
+          </p>
+          <ActionLink href="/build-an-extension">
+            Get a quote <Icon name="arrow" />
+          </ActionLink>
+        </div>
+        <div className="build-blueprint" aria-hidden="true">
+          <div className="blueprint-bar">
+            <span className="status-dot" /> Your next browser tool
+          </div>
+          <Icon name="spark" />
+          <span className="blueprint-title">Made for your workflow.</span>
+          <div className="blueprint-tags">
+            <span>Custom interface</span>
+            <span>Manifest V3</span>
+            <span>Clear permissions</span>
+          </div>
+        </div>
+      </section>
       <section className="privacy-callout container" id="our-approach">
         <div className="privacy-symbol">
           <Icon name="shield" />

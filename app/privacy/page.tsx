@@ -4,6 +4,7 @@ import { extensions, privacyPath } from "@/lib/extensions";
 import { ActionLink, Badge, Eyebrow, Icon } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Privacy policies",
+  alternates: { canonical: "/privacy" },
   description:
     "Individual privacy policies and permission disclosures for every Modulus Tools extension.",
 };
@@ -66,11 +67,14 @@ export default function PrivacyIndex() {
           installed extensions.
         </p>
         <p>
+          Contact and quote emails are separate from extension data.{" "}
+          <ActionLink href="/privacy/website" variant="text">
+            Read the website & contact privacy policy <Icon name="arrow" />
+          </ActionLink>
+        </p>
+        <p>
           Questions about a policy?{" "}
-          <ActionLink
-            href="https://github.com/themrsami/modulustools/issues"
-            variant="text"
-          >
+          <ActionLink href="/support" variant="text">
             Contact the publisher <Icon name="arrow" />
           </ActionLink>
         </p>
