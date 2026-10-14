@@ -56,10 +56,19 @@ Listings remain labeled “launch coming soon” until approved Web Store URLs e
 1. Import this GitHub repository into the intended Vercel project using the Next.js preset, repository root, pnpm, and Node.js 24.
 2. Deploy `main`; verify the build is Ready.
 3. Add `modulustools.com` as the production domain and redirect `www.modulustools.com` to it.
-4. In Cloudflare DNS, use the **exact** A and CNAME values shown by that Vercel project. Keep nameservers at Cloudflare and website records DNS-only while verifying.
+4. In Cloudflare DNS, use the **exact** records shown by that Vercel project. This deployment uses DNS-only CNAME records for both `@` and `www`, pointing to `e85771ae076f5a93.vercel-dns-017.com`. Cloudflare flattens the root CNAME. Keep nameservers at Cloudflare.
 5. Check HTTPS, both domain forms, all seven policy URLs, quote preparation, and support mail routing.
 
 Do not change unrelated projects, DNS records, or email services. Domain propagation and mail verification are separate from a successful website deployment.
+
+### Configured services (October 15, 2026)
+
+- Vercel project: `usama-nazirs-projects/modulustools`, connected to this repository's `main` branch. Both website domains show valid configuration; `www` redirects permanently (308) to the root domain.
+- Public HTTPS checks passed on all 19 content routes, all policy pages, sitemap/robots, and unknown-route 404s.
+- Incoming support mail: Cloudflare Email Routing with an active rule for `support@modulustools.com` to the owner's verified Gmail destination. Catch-all is disabled.
+- Outgoing mail: Resend has verified the domain (Tokyo region), including its DKIM, `rsend`, and `send` records. Resend receiving is off so it does not conflict with Cloudflare MX records.
+- DMARC starts at `p=none` (non-enforcing). Review legitimate sending sources before choosing a stricter policy.
+- Gmail forwarding does not configure “Send mail as.” Replies from the branded address require a separate authenticated sending/mailbox configuration. The website itself sends no email and has no Resend key.
 
 ## Verification & maintenance
 
