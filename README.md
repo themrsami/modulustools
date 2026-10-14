@@ -65,10 +65,11 @@ Do not change unrelated projects, DNS records, or email services. Domain propaga
 
 - Vercel project: `usama-nazirs-projects/modulustools`, connected to this repository's `main` branch. Both website domains show valid configuration; `www` redirects permanently (308) to the root domain.
 - Public HTTPS checks passed on all 19 content routes, all policy pages, sitemap/robots, and unknown-route 404s.
-- Incoming support mail: Cloudflare Email Routing with an active rule for `support@modulustools.com` to the owner's verified Gmail destination. Catch-all is disabled.
+- Incoming support mail: Cloudflare Email Routing is enabled, with an active rule for `support@modulustools.com` to the owner's verified Gmail destination. Catch-all is disabled. No end-to-end test email was sent during setup.
 - Outgoing mail: Resend has verified the domain (Tokyo region), including its DKIM, `rsend`, and `send` records. Resend receiving is off so it does not conflict with Cloudflare MX records.
 - DMARC starts at `p=none` (non-enforcing). Review legitimate sending sources before choosing a stricter policy.
 - Gmail forwarding does not configure “Send mail as.” Replies from the branded address require a separate authenticated sending/mailbox configuration. The website itself sends no email and has no Resend key.
+- The selected Vercel team currently uses Hobby. Vercel limits Hobby to personal, non-commercial use; this custom-development offer needs an appropriate commercial plan before business use. No paid upgrade was authorized or made. See [Vercel Hobby policy](https://vercel.com/docs/plans/hobby).
 
 ## Verification & maintenance
 
