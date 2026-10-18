@@ -9,7 +9,7 @@ export function GuideCards({ extensionSlug }: { extensionSlug?: string }) {
     ? guides.filter((guide) => guide.extensionSlug === extensionSlug)
     : guides;
   return (
-    <div className="guide-grid">
+    <div className={`guide-grid${extensionSlug ? " guide-grid-single" : ""}`}>
       {selected.map((guide) => {
         const extension = findExtension(guide.extensionSlug)!;
         return (
@@ -23,10 +23,12 @@ export function GuideCards({ extensionSlug }: { extensionSlug?: string }) {
               />
               <Eyebrow>{extension.name} guide</Eyebrow>
             </div>
-            <h3>
-              <Link href={guidePath(guide.slug)}>{guide.title}</Link>
-            </h3>
-            <p>{guide.description}</p>
+            <div className="guide-card-copy">
+              <h3>
+                <Link href={guidePath(guide.slug)}>{guide.title}</Link>
+              </h3>
+              <p>{guide.description}</p>
+            </div>
             <ActionLink href={guidePath(guide.slug)} variant="text">
               Read the guide <Icon name="arrow" />
             </ActionLink>

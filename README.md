@@ -92,6 +92,10 @@ Do not change unrelated projects, DNS records, or email services. Domain propaga
 
 ## Verification & maintenance
 
+`pnpm build` includes a CSS artifact check: it inspects the stylesheets actually linked by the generated pages and fails if guide/article/product styles are missing. Production Turbopack filesystem caching is disabled to avoid reusing stale stylesheet output; development caching remains unchanged.
+
+For layout regression checks, install a Playwright browser once with `pnpm exec playwright install chromium`, start the production server on port 3110, and run `pnpm test:guides`. To use an already installed Chrome, set `PLAYWRIGHT_CHANNEL=chrome`. Set `MODULUS_TEST_URL=https://modulustools.com` to run the same checks against production. These tests verify computed grids, card borders/radii/padding, typography, sidebar placement, content width, client navigation, and overflow at 390, 768, 1024, and 1440 pixels. Screenshots are saved under ignored `.qa/guide-layout/`. They never install an extension, contact a store listing, or send email.
+
 Run lint and a production build before pushing. Verify all 24 content routes at desktop and mobile sizes, artwork loading, all three exact install destinations, unpublished availability labels, guide navigation/structured data, catalog filters/search, no-results reset, copy-policy links, custom quote validation and encoded draft, canonical URLs, robots/sitemap, and unknown-route 404s. No email should be sent by automated UI tests.
 
 The site is independent of Google. Chrome and Chrome Web Store are Google trademarks. The brand copyright covers Modulus Tools’ original website and interface work; it does not replace third-party extension or font licenses.
