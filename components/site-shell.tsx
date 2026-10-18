@@ -14,6 +14,7 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Main navigation">
           <Link href="/#extensions">Extensions</Link>
+          <Link href="/guides">Guides</Link>
           <Link href="/privacy">Privacy</Link>
           <Link href="/support">Support</Link>
           <Link href="/build-an-extension" className="support-link">
@@ -40,6 +41,8 @@ export function SiteFooter() {
           </div>
           <nav aria-label="Footer navigation">
             <Link href="/#extensions">The collection</Link>
+            <Link href="/guides">Chrome guides</Link>
+            <Link href="/about">About us</Link>
             <Link href="/privacy">Privacy policies</Link>
             <Link href="/build-an-extension">Custom extensions</Link>
             <Link href="/support">Support</Link>

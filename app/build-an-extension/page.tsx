@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { ActionLink, Eyebrow, Icon } from "@/components/ui";
 import { QuoteBrief } from "@/components/quote-brief";
-export const metadata: Metadata = {
-  title: "Get a quote for your own Chrome extension",
-  description:
-    "Turn your workflow into a custom Chrome extension. Share your idea with Modulus Tools and request a project quote.",
-  alternates: { canonical: "/build-an-extension" },
-};
+export const metadata = pageMetadata(
+  "Custom Chrome Extension Development — Get a Quote",
+  "Turn your workflow into a custom Chrome extension. Share your idea with Modulus Tools and request a project quote.",
+  "/build-an-extension",
+);
 export default function BuildPage() {
   return (
     <main id="main-content" className="container service-page">

@@ -1591,7 +1591,9 @@ em {
   display: grid;
   gap: 24px;
 }
-.quote-brief .action-primary { color: var(--paper); }
+.quote-brief .action-primary {
+  color: var(--paper);
+}
 .brief-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1733,6 +1735,319 @@ em {
 }
 .footer-top nav a {
   overflow-wrap: anywhere;
+}
+.card-availability {
+  margin-top: 22px;
+}
+.store-link {
+  justify-content: center;
+  max-width: 100%;
+}
+.card-availability .store-link {
+  width: 100%;
+  font-size: 12px;
+  padding: 12px;
+}
+.upcoming-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  padding-block: 10px;
+}
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.guides-section {
+  padding-block: 55px 65px;
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+.guide-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.guide-card-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.guide-card-label img {
+  border-radius: 8px;
+}
+.guide-card h3 {
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 550;
+  letter-spacing: -0.5px;
+}
+.guide-card h3 a:hover,
+.breadcrumbs a:hover,
+.article-sidebar nav a:hover,
+.article-byline a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.guide-card p {
+  margin-block: 16px 25px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.guide-card > .action {
+  margin-top: auto;
+}
+.resource-page {
+  padding-block: 36px 85px;
+}
+.breadcrumbs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.breadcrumbs .action {
+  font-size: inherit;
+}
+.resource-heading {
+  max-width: 850px;
+  padding-block: 35px 30px;
+}
+.resource-heading h1 {
+  font-size: clamp(34px, 4.2vw, 57px);
+  line-height: 1.16;
+  letter-spacing: -1.8px;
+  font-weight: 450;
+  margin-block: 18px 24px;
+}
+.resource-heading h1 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: #57775c;
+}
+.resource-heading > p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 760px;
+}
+.article-byline {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 25px;
+}
+.article-byline a {
+  color: var(--ink);
+}
+.article-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 740px);
+  justify-content: space-between;
+  gap: 65px;
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  padding-top: 40px;
+}
+.article-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 25px;
+}
+.article-sidebar nav {
+  display: grid;
+  gap: 15px;
+  margin-top: 22px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.article-tool {
+  background: var(--sage-light);
+  border: 1px solid #ced9ca;
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 30px;
+  display: grid;
+  justify-items: start;
+  gap: 17px;
+}
+.article-tool strong {
+  font-size: 16px;
+  font-weight: 550;
+}
+.article-tool p {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.article-tool .action {
+  font-size: 11px;
+}
+.article-tool .store-link {
+  padding: 12px;
+  width: 100%;
+  gap: 8px;
+}
+.guide-content section {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+.guide-content h2,
+.resource-bottom h2,
+.related-guides h2,
+.about-grid h2 {
+  font-size: 26px;
+  line-height: 1.35;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  margin-block: 12px 16px;
+}
+.guide-content p,
+.guide-content li {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.guide-content p + p {
+  margin-top: 18px;
+}
+.guide-content ol {
+  list-style: decimal;
+  padding-left: 25px;
+  margin-top: 20px;
+}
+.guide-content li {
+  padding-left: 5px;
+  margin-block: 12px;
+}
+.guide-content li::marker {
+  color: #57775c;
+  font-weight: 600;
+}
+.guide-help {
+  padding: 26px;
+  border-radius: 16px;
+  background: var(--sage-light);
+}
+.guide-help .action {
+  margin-top: 22px;
+}
+.related-guides {
+  border-top: 1px solid var(--line);
+  margin-top: 65px;
+  padding-top: 35px;
+}
+.related-guides > div {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  margin-top: 22px;
+}
+.related-guides .action {
+  text-wrap: pretty;
+}
+.resource-bottom {
+  border-top: 1px solid var(--line);
+  margin-top: 55px;
+  padding-top: 30px;
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  align-items: center;
+}
+.resource-bottom p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 760px;
+}
+.resource-bottom p + p {
+  margin-top: 15px;
+}
+.resource-bottom > .action {
+  flex-shrink: 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 55px;
+  margin-top: 30px;
+}
+.about-grid section {
+  border-top: 1px solid var(--line);
+  padding-block: 30px;
+}
+.about-grid p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+@media (max-width: 1050px) {
+  .guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .article-layout {
+    grid-template-columns: 235px minmax(0, 1fr);
+    gap: 35px;
+  }
+}
+@media (max-width: 760px) {
+  .guide-grid,
+  .about-grid,
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+  .guides-section {
+    padding-block: 35px 45px;
+  }
+  .guide-card {
+    padding: 26px;
+  }
+  .article-sidebar {
+    position: static;
+  }
+  .article-sidebar nav {
+    gap: 12px;
+  }
+  .article-layout {
+    gap: 35px;
+  }
+  .resource-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .resource-heading h1 {
+    letter-spacing: -1px;
+  }
+  .resource-heading > p {
+    font-size: 14px;
+  }
+  .guide-content p,
+  .guide-content li {
+    font-size: 14px;
+  }
 }
 @media (max-width: 1050px) {
   .build-callout {

@@ -137,6 +137,19 @@ export function Button({
     </button>
   );
 }
+export function StoreLink({ href, name }: { href: string; name: string }) {
+  return (
+    <a
+      href={href}
+      className="action action-primary store-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Get ${name} for Chrome (opens in a new tab)`}
+    >
+      <Icon name="chrome" /> Get it for Chrome <Icon name="arrow" />
+    </a>
+  );
+}
 export function SearchField(props: InputHTMLAttributes<HTMLInputElement>) {
   return (
     <label className="search-field">

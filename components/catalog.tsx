@@ -7,7 +7,15 @@ import {
   extensionPath,
   privacyPath,
 } from "@/lib/extensions";
-import { ActionLink, Badge, Button, Eyebrow, Icon, SearchField } from "./ui";
+import {
+  ActionLink,
+  Badge,
+  Button,
+  Eyebrow,
+  Icon,
+  SearchField,
+  StoreLink,
+} from "./ui";
 export function Catalog() {
   const [category, setCategory] = useState<string>("All extensions");
   const [query, setQuery] = useState("");
@@ -86,6 +94,15 @@ export function Catalog() {
                 <span key={feature}>{feature}</span>
               ))}
             </div>
+            <div className="card-availability">
+              {extension.storeUrl ? (
+                <StoreLink href={extension.storeUrl} name={extension.name} />
+              ) : (
+                <span className="upcoming-label">
+                  Not yet available on Chrome Web Store
+                </span>
+              )}
+            </div>
             <div className="card-footer">
               <ActionLink href={extensionPath(extension.slug)} variant="text">
                 Explore tool <Icon name="arrow" />
@@ -120,8 +137,9 @@ export function Catalog() {
       <div className="availability-note">
         <span className="status-dot" />
         <p>
-          The collection is getting ready for the Chrome Web Store. Explore each
-          tool and its privacy policy while we prepare for launch.
+          Imagus, AutoplayStopper, and Linkclump are available on the Chrome Web
+          Store. The other four tools are not yet available. Explore their
+          features and privacy policies here.
         </p>
       </div>
     </section>

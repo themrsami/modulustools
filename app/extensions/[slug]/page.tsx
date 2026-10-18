@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { extensions, findExtension, privacyPath } from "@/lib/extensions";
-import { ActionLink, Badge, Eyebrow, Icon } from "@/components/ui";
+import { ActionLink, Badge, Eyebrow, Icon, StoreLink } from "@/components/ui";
+import { GuidesSection } from "@/components/guide-cards";
+import { BreadcrumbData } from "@/components/structured-data";
+import { pageMetadata, productTitles } from "@/lib/metadata";
 export function generateStaticParams() {
   return extensions.map(({ slug }) => ({ slug }));
 }
@@ -12,13 +15,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const extension = findExtension((await params).slug);
-  return {
-    title: extension?.name || "Extension not found",
-    description: extension?.description,
-    alternates: extension
-      ? { canonical: `/extensions/${extension.slug}` }
-      : undefined,
-  };
+  if (!extension) return { title: "Extension not found" };
+  return pageMetadata(
+    productTitles[extension.slug],
+    extension.description,
+    `/extensions/${extension.slug}`,
+  );
 }
 export default async function ExtensionPage({
   params,
@@ -29,6 +31,24 @@ export default async function ExtensionPage({
   if (!extension) notFound();
   return (
     <main id="main-content" className="container extension-page">
+      <BreadcrumbData
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Extensions", path: "/#extensions" },
+          { name: extension.name, path: `/extensions/${extension.slug}` },
+        ]}
+      />
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <ActionLink href="/" variant="text">
+          Home
+        </ActionLink>
+        <span aria-hidden="true">/</span>
+        <ActionLink href="/#extensions" variant="text">
+          Extensions
+        </ActionLink>
+        <span aria-hidden="true">/</span>
+        <span>{extension.name}</span>
+      </nav>
       <ActionLink href="/#extensions" variant="text">
         <Icon name="back" /> Back to the collection
       </ActionLink>
@@ -54,10 +74,16 @@ export default async function ExtensionPage({
             ))}
           </div>
           <Badge>
-            <span className="status-dot" /> Chrome Web Store launch coming soon
+            <span className="status-dot" />{" "}
+            {extension.storeUrl
+              ? "Available on Chrome Web Store"
+              : "Not yet available on Chrome Web Store"}
           </Badge>
           <div className="detail-actions">
-            <ActionLink href={privacyPath(extension.slug)} variant="primary">
+            {extension.storeUrl && (
+              <StoreLink href={extension.storeUrl} name={extension.name} />
+            )}
+            <ActionLink href={privacyPath(extension.slug)} variant="secondary">
               <Icon name="shield" /> Read privacy policy <Icon name="arrow" />
             </ActionLink>
             <ActionLink href="/support" variant="text">
@@ -87,6 +113,7 @@ export default async function ExtensionPage({
           </div>
         </div>
       </div>
+      <GuidesSection extensionSlug={extension.slug} />
       <div className="detail-privacy-note">
         <Icon name="shield" />
         <div>

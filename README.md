@@ -25,7 +25,7 @@ No environment variables, database, or email API key are required. Never commit 
 
 The site uses bespoke components in `components/ui.tsx`, a custom M monogram, Geist typography, and the extension palette: plum `#3A1E2B`, sage `#829E85`, and warm paper `#FAF5F6`. Semantic HTML is retained inside custom-styled components for keyboard and screen-reader support. Brand contact, canonical domain, and extension version (1.1.0) live in `lib/site.ts`.
 
-Routes include the searchable collection, seven extension pages, seven individual privacy pages, the privacy center, website/contact privacy, support, and a custom-extension quote brief. Canonicals, social artwork, robots.txt, sitemap.xml, and a branded 404 are included.
+Routes include the searchable collection, seven extension pages, seven individual privacy pages, the privacy center, website/contact privacy, support, a custom-extension quote brief, an about page, and a handbook with three guides. The site has 24 content routes. Canonicals, page-specific social metadata on product and editorial pages, robots.txt, sitemap.xml, and a branded 404 are included.
 
 ## Quotes and support
 
@@ -49,7 +49,26 @@ Use the matching URL in each listing, not the privacy index.
 
 The extension descriptions, permissions, and data-handling disclosures are centralized in `lib/extensions.ts`. They distinguish local storage, clipboard snippets, downloads, bookmark syncing, external media requests, and in-memory audio processing. Verify every policy against the package actually submitted. Update the policy date when practices change.
 
-Listings remain labeled “launch coming soon” until approved Web Store URLs exist. Add only verified install links; do not present drafts as published extensions.
+### Live install links
+
+These three published listing links were supplied by the owner on October 18, 2026. They appear on collection cards, product pages, and matching guides. Account and locale query parameters are intentionally omitted.
+
+| Extension       | Chrome Web Store listing                                                                                             |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Imagus          | [Install Imagus](https://chromewebstore.google.com/detail/imagus/bdlicplmkecjmlefjndmgfgcdnilocio)                   |
+| AutoplayStopper | [Install AutoplayStopper](https://chromewebstore.google.com/detail/autoplaystopper/njbikmhihfdomkfimalmkfcnmjcooihp) |
+| Linkclump       | [Install Linkclump](https://chromewebstore.google.com/detail/linkclump/leophljmgneicoeeclgggbojeajbdbio)             |
+
+The other four tools are labeled not yet available. Add a `storeUrl` in `lib/extensions.ts` only after its public listing is available. Do not link to a developer-dashboard draft. DownAlbum’s policy now reflects package 1.1.1 without the unnecessary `tabs` permission; the remaining policy versions default to 1.1.0.
+
+## Search visibility & editorial maintenance
+
+- Three original, task-focused guides in `lib/guides.ts` cover Imagus hover previews, AutoplayStopper modes, and Linkclump bulk-link actions. Controls and defaults were checked against the local extension sources. Keep guides aligned with the package actually released; they do not promise universal website compatibility.
+- Product and guide pages have descriptive titles, canonical URLs, social metadata, and crawlable links. The home page links to the handbook; guides link to the product, privacy policy, support, and related guides.
+- JSON-LD describes the real organization, website, visible breadcrumbs, and guide articles. It contains no invented ratings, reviews, download counts, or guaranteed rich results. Article bylines and dates are visible. There is no FAQ or HowTo rich-result markup.
+- The sitemap includes all 24 content routes. Update `lastModified` only when the corresponding page changes meaningfully, not on every build. The existing Search Console domain property can discover the updated sitemap at `/sitemap.xml`; this code change does not claim a new indexing request or guaranteed inclusion.
+- Follow Google’s [people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [crawlable link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable). Search improvements require crawling and evaluation over time; positions and traffic are not guaranteed.
+- Useful next editorial additions should answer actual support questions or document tested workflows. Do not bulk-generate near-duplicate keyword pages or buy manipulative backlinks. Review Search Console impressions, queries, and indexed pages before deciding what to write next.
 
 ## Vercel & Cloudflare
 
@@ -73,7 +92,7 @@ Do not change unrelated projects, DNS records, or email services. Domain propaga
 
 ## Verification & maintenance
 
-Run lint and a production build before pushing. Verify all 19 content routes at desktop and mobile sizes, artwork loading, catalog filters/search, no-results reset, copy-policy links, custom quote validation and encoded draft, canonical URLs, robots/sitemap, and unknown-route 404s. No email should be sent by automated UI tests.
+Run lint and a production build before pushing. Verify all 24 content routes at desktop and mobile sizes, artwork loading, all three exact install destinations, unpublished availability labels, guide navigation/structured data, catalog filters/search, no-results reset, copy-policy links, custom quote validation and encoded draft, canonical URLs, robots/sitemap, and unknown-route 404s. No email should be sent by automated UI tests.
 
 The site is independent of Google. Chrome and Chrome Web Store are Google trademarks. The brand copyright covers Modulus Tools’ original website and interface work; it does not replace third-party extension or font licenses.
 

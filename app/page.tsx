@@ -1,16 +1,50 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = { alternates: { canonical: "/" } };
+import { pageMetadata } from "@/lib/metadata";
+import { StructuredData } from "@/components/structured-data";
+import { GuidesSection } from "@/components/guide-cards";
+import { site } from "@/lib/site";
+export const metadata = pageMetadata(
+  "Chrome Extensions for Images, Autoplay & Links",
+  "Get Imagus, AutoplayStopper, and Linkclump for Chrome. Explore focused browser tools, practical setup guides, privacy policies, and custom extension development.",
+  "/",
+);
 import { Catalog } from "@/components/catalog";
 import { BrowserPreview } from "@/components/browser-preview";
 import { ActionLink, Eyebrow, Icon } from "@/components/ui";
 export default function Home() {
   return (
     <main id="main-content">
+      <StructuredData
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": site.url + "/#organization",
+              name: site.name,
+              url: site.url,
+              logo: site.url + "/apple-icon.png",
+              email: site.supportEmail,
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer support",
+                email: site.supportEmail,
+                url: site.url + "/support",
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": site.url + "/#website",
+              name: site.name,
+              url: site.url,
+              publisher: { "@id": site.url + "/#organization" },
+            },
+          ],
+        }}
+      />
       <section className="hero container">
         <div className="hero-copy">
           <Eyebrow>
-            <span className="status-dot" /> A little less friction. A lot more
-            flow.
+            <span className="status-dot" /> Thoughtful Chrome extensions
           </Eyebrow>
           <h1>
             Your browser.
@@ -18,8 +52,9 @@ export default function Home() {
             With <em>more possibility.</em>
           </h1>
           <p className="hero-description">
-            Small, thoughtful extensions for the things you do every day.
-            Explore, create, and work your way.
+            Preview images on hover, control video autoplay, and open groups of
+            links in one gesture. Thoughtful Chrome extensions for the things
+            you do every day.
           </p>
           <div className="hero-actions">
             <ActionLink href="#extensions">
@@ -49,6 +84,9 @@ export default function Home() {
         </div>
       </div>
       <Catalog />
+      <div className="container">
+        <GuidesSection />
+      </div>
       <section
         className="build-callout container"
         aria-labelledby="build-title"

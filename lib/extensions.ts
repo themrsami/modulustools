@@ -3,6 +3,9 @@ export type Extension = {
   slug: string;
   name: string;
   shortName?: string;
+  storeUrl?: string;
+  version?: string;
+  policyDate?: string;
   tagline: string;
   description: string;
   purpose: string;
@@ -19,6 +22,8 @@ export const extensions: Extension[] = [
   {
     slug: "imagus",
     name: "Imagus",
+    storeUrl:
+      "https://chromewebstore.google.com/detail/imagus/bdlicplmkecjmlefjndmgfgcdnilocio",
     tagline: "A closer look, without the click.",
     category: "Visual & media",
     description:
@@ -47,6 +52,8 @@ export const extensions: Extension[] = [
   {
     slug: "autoplaystopper",
     name: "AutoplayStopper",
+    storeUrl:
+      "https://chromewebstore.google.com/detail/autoplaystopper/njbikmhihfdomkfimalmkfcnmjcooihp",
     tagline: "Press play on your own terms.",
     category: "Productivity",
     description:
@@ -74,6 +81,8 @@ export const extensions: Extension[] = [
   {
     slug: "linkclump",
     name: "Linkclump",
+    storeUrl:
+      "https://chromewebstore.google.com/detail/linkclump/leophljmgneicoeeclgggbojeajbdbio",
     tagline: "Many links. One simple gesture.",
     category: "Productivity",
     description:
@@ -102,6 +111,8 @@ export const extensions: Extension[] = [
   {
     slug: "downalbum",
     name: "DownAlbum",
+    version: "1.1.1",
+    policyDate: "October 18, 2026",
     tagline: "Keep the whole collection.",
     category: "Visual & media",
     description:
@@ -123,7 +134,6 @@ export const extensions: Extension[] = [
         "Downloads selected images and exported album files to your device.",
       activeTab: "Scans the current tab after you start an album capture.",
       scripting: "Runs the album harvester when you request a capture.",
-      tabs: "Opens the Gallery Review and Batch Export page.",
       "Host access — all websites":
         "Resolves image URLs and loads gallery previews from image hosts.",
     },

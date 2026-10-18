@@ -52,8 +52,8 @@ export default async function PrivacyPolicy({
           <Eyebrow>Privacy policy</Eyebrow>
           <h1>{extension.name}</h1>
           <p>
-            Effective {effectiveDate} · Extension version{" "}
-            {site.extensionVersion}
+            Effective {extension.policyDate || effectiveDate} · Extension
+            version {extension.version || site.extensionVersion}
           </p>
         </div>
       </div>

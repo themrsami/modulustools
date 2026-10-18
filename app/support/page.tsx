@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { ActionLink, Eyebrow, Icon } from "@/components/ui";
 import { site, contactHref } from "@/lib/site";
-export const metadata: Metadata = {
-  title: "Support & contact",
-  description:
-    "Get help with a Modulus Tools extension or discuss a custom Chrome extension.",
-  alternates: { canonical: "/support" },
-};
+export const metadata = pageMetadata(
+  "Chrome Extension Support & Contact",
+  "Get help with a Modulus Tools extension or discuss a custom Chrome extension.",
+  "/support",
+);
 export default function SupportPage() {
   return (
     <main id="main-content" className="container contact-page">
