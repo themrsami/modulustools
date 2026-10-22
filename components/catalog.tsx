@@ -36,7 +36,7 @@ export function Catalog() {
           </h2>
         </div>
         <p>
-          Seven tools. Each with a clear purpose.
+          Seven Chrome extensions. Each with a clear purpose.
           <br />
           Pick the ones that fit your day.
         </p>
@@ -137,9 +137,9 @@ export function Catalog() {
       <div className="availability-note">
         <span className="status-dot" />
         <p>
-          Imagus, AutoplayStopper, and Linkclump are available on the Chrome Web
-          Store. The other four tools are not yet available. Explore their
-          features and privacy policies here.
+          Imagus, AutoplayStopper, Linkclump, and DownAlbum are available on the
+          Chrome Web Store. The other three extensions are not yet available.
+          Explore their features and privacy policies here.
         </p>
       </div>
     </section>

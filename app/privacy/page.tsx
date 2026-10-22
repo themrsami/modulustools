@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { extensions, privacyPath } from "@/lib/extensions";
 import { ActionLink, Badge, Eyebrow, Icon } from "@/components/ui";
+import { seoSuite } from "@/lib/wordpress";
 export const metadata: Metadata = {
   title: "Privacy policies",
   alternates: { canonical: "/privacy" },
   description:
-    "Individual privacy policies and permission disclosures for every Modulus Tools extension.",
+    "Individual privacy policies for Modulus Tools Chrome extensions, the WordPress SEO plugin, and website correspondence.",
 };
 export default function PrivacyIndex() {
   return (
@@ -19,8 +20,8 @@ export default function PrivacyIndex() {
           <em>Your data.</em>
         </h1>
         <p>
-          Understand what each extension accesses, what stays on your device,
-          and how to stay in control.
+          Understand each product’s data handling, from browser-local extension
+          settings to your WordPress database and external integrations.
         </p>
       </div>
       <div className="privacy-summary">
@@ -57,6 +58,21 @@ export default function PrivacyIndex() {
           </article>
         ))}
       </div>
+      <section className="plugin-privacy-callout">
+        <Image src={seoSuite.icon} alt="" width={56} height={56} />
+        <div>
+          <Eyebrow>WordPress plugin · separate data practices</Eyebrow>
+          <h2>{seoSuite.name}</h2>
+          <p>
+            SEO settings and logs are stored on your WordPress site. Read about
+            IndexNow notifications, configured AI services, retention, and
+            uninstall controls.
+          </p>
+        </div>
+        <ActionLink href={seoSuite.privacyPath} variant="secondary">
+          Plugin privacy policy <Icon name="arrow" />
+        </ActionLink>
+      </section>
       <div className="website-note">
         <h2>About this website</h2>
         <p>

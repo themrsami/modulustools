@@ -2,9 +2,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { StructuredData } from "@/components/structured-data";
 import { GuidesSection } from "@/components/guide-cards";
 import { site } from "@/lib/site";
+import { WordPressFeature } from "@/components/wordpress-feature";
 export const metadata = pageMetadata(
-  "Chrome Extensions for Images, Autoplay & Links",
-  "Get Imagus, AutoplayStopper, and Linkclump for Chrome. Explore focused browser tools, practical setup guides, privacy policies, and custom extension development.",
+  "Chrome Extensions & WordPress SEO Plugin",
+  "Explore Imagus, AutoplayStopper, Linkclump, and DownAlbum for Chrome, plus ModulusTools SEO Suite for WordPress. Get official links and practical setup guides.",
   "/",
 );
 import { Catalog } from "@/components/catalog";
@@ -44,28 +45,30 @@ export default function Home() {
       <section className="hero container">
         <div className="hero-copy">
           <Eyebrow>
-            <span className="status-dot" /> Thoughtful Chrome extensions
+            <span className="status-dot" /> Thoughtful tools for browsers &
+            websites
           </Eyebrow>
           <h1>
-            Your browser.
+            Your workflow.
             <br />
             With <em>more possibility.</em>
           </h1>
           <p className="hero-description">
-            Preview images on hover, control video autoplay, and open groups of
-            links in one gesture. Thoughtful Chrome extensions for the things
-            you do every day.
+            Preview images, control autoplay, gather links, and save galleries.
+            Explore focused Chrome extensions and a modular SEO toolkit for your
+            WordPress site.
           </p>
           <div className="hero-actions">
             <ActionLink href="#extensions">
               Explore the collection <Icon name="arrow" />
             </ActionLink>
-            <ActionLink href="/privacy" variant="text">
-              Our approach to privacy <Icon name="arrow" />
+            <ActionLink href="#wordpress" variant="text">
+              Explore WordPress SEO <Icon name="arrow" />
             </ActionLink>
           </div>
           <div className="hero-note">
-            <Icon name="chrome" /> Made for Chrome <span /> Seven focused tools
+            <Icon name="chrome" /> Seven Chrome extensions <span /> WordPress
+            SEO
           </div>
         </div>
         <BrowserPreview />
@@ -84,6 +87,7 @@ export default function Home() {
         </div>
       </div>
       <Catalog />
+      <WordPressFeature />
       <div className="container">
         <GuidesSection />
       </div>
@@ -133,9 +137,10 @@ export default function Home() {
         </div>
         <div className="privacy-callout-copy">
           <p>
-            Settings and extension data stay in your browser or on your device.
-            No advertising trackers or extension analytics. Clear permissions,
-            explained in plain language.
+            Chrome extension data stays in your browser or on your device.
+            WordPress plugin settings live on your site, with separate
+            disclosures for logs and external integrations. Read the policy for
+            your product.
           </p>
           <ActionLink href="/privacy" variant="text">
             Read our privacy policies <Icon name="arrow" />

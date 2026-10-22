@@ -21,7 +21,7 @@ export function pageMetadata(
           url: "/social-card.png",
           width: 1200,
           height: 630,
-          alt: "Modulus Tools — Chrome extensions and practical guides",
+          alt: "Modulus Tools — Small tools. More possibility.",
         },
       ],
     },

@@ -10,6 +10,7 @@
     "build": "next build && node scripts/check-styles.mjs",
     "test:styles": "node scripts/check-styles.mjs",
     "test:guides": "node scripts/check-guide-layout.mjs",
+    "test:products": "node scripts/check-products.mjs",
     "start": "next start",
     "lint": "eslint"
   },

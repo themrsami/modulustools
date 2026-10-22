@@ -2,9 +2,10 @@ import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { ActionLink, Eyebrow, Icon } from "@/components/ui";
 import { site, contactHref } from "@/lib/site";
+import { seoSuite } from "@/lib/wordpress";
 export const metadata = pageMetadata(
-  "Chrome Extension Support & Contact",
-  "Get help with a Modulus Tools extension or discuss a custom Chrome extension.",
+  "Chrome Extension & WordPress Plugin Support",
+  "Get help with a Modulus Tools Chrome extension, ModulusTools SEO Suite for WordPress, or a custom extension project.",
   "/support",
 );
 export default function SupportPage() {
@@ -30,9 +31,9 @@ export default function SupportPage() {
             {site.supportEmail}
           </a>
           <p>
-            Include the extension name, its version, your Chrome version, and
-            what happened. A redacted screenshot and steps to reproduce the
-            issue help us investigate.
+            Include the product name and version, your Chrome version or
+            WordPress/PHP versions, and what happened. A redacted screenshot and
+            steps to reproduce the issue help us investigate.
           </p>
           <ActionLink href={contactHref()}>
             Email support <Icon name="arrow" />
@@ -45,11 +46,25 @@ export default function SupportPage() {
         </section>
         <div className="contact-options">
           <section>
+            <Eyebrow>WordPress plugin</Eyebrow>
+            <h2>{seoSuite.name}</h2>
+            <p>
+              For setup and compatibility questions, start with the guide or use
+              the plugin’s public WordPress.org forum. Redact sensitive site
+              details before posting.
+            </p>
+            <ActionLink href={`/guides/${seoSuite.guideSlug}`} variant="text">
+              WordPress setup guide <Icon name="arrow" />
+            </ActionLink>
+            <ActionLink href={seoSuite.supportUrl} variant="text">
+              WordPress.org support forum <Icon name="arrow" />
+            </ActionLink>
+          </section>
+          <section>
             <Icon name="shield" />
             <h2>Privacy questions</h2>
             <p>
-              Each extension has its own data-handling and permission
-              disclosure.
+              Each product has its own data-handling and integration disclosure.
             </p>
             <ActionLink href="/privacy" variant="text">
               Visit the privacy center <Icon name="arrow" />

@@ -17,6 +17,9 @@ const selectors = [
   ".guide-grid-single",
   ".store-link",
   ".about-grid",
+  ".wordpress-feature",
+  ".wordpress-product-hero",
+  ".plugin-privacy-callout",
 ];
 const staticRoot = path.join(root, ".next/static");
 const cssFiles = readdirSync(staticRoot, { recursive: true }).filter((file) =>

@@ -14,6 +14,7 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Main navigation">
           <Link href="/#extensions">Extensions</Link>
+          <Link href="/#wordpress">WordPress</Link>
           <Link href="/guides">Guides</Link>
           <Link href="/privacy">Privacy</Link>
           <Link href="/support">Support</Link>
@@ -37,11 +38,12 @@ export function SiteFooter() {
                 modulus<span className="brand-light">tools</span>.
               </span>
             </Link>
-            <p>Small tools. A better everyday browser.</p>
+            <p>Small tools. Better browsers and websites.</p>
           </div>
           <nav aria-label="Footer navigation">
             <Link href="/#extensions">The collection</Link>
-            <Link href="/guides">Chrome guides</Link>
+            <Link href="/wordpress/modulustools-seo-suite">WordPress SEO</Link>
+            <Link href="/guides">Product guides</Link>
             <Link href="/about">About us</Link>
             <Link href="/privacy">Privacy policies</Link>
             <Link href="/build-an-extension">Custom extensions</Link>

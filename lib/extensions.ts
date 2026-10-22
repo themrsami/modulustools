@@ -111,6 +111,8 @@ export const extensions: Extension[] = [
   {
     slug: "downalbum",
     name: "DownAlbum",
+    storeUrl:
+      "https://chromewebstore.google.com/detail/downalbum/lokcefdcipipcemdpcndendbdjbmacpk",
     version: "1.1.1",
     policyDate: "October 18, 2026",
     tagline: "Keep the whole collection.",

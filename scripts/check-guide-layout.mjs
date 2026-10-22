@@ -9,6 +9,8 @@ const slugs = [
   "preview-images-on-hover-chrome",
   "stop-video-autoplay-chrome",
   "open-copy-multiple-links-chrome",
+  "download-gallery-images-chrome-downalbum",
+  "set-up-modulustools-seo-suite-wordpress",
 ];
 
 async function cardLayout(page, columns) {
@@ -55,6 +57,8 @@ async function cardLayout(page, columns) {
         "/",
         "/guides",
         "/extensions/autoplaystopper",
+        "/extensions/downalbum",
+        "/wordpress/modulustools-seo-suite",
         ...slugs.map((slug) => "/guides/" + slug),
       ]) {
         const response = await page.goto(base + route);
@@ -62,7 +66,10 @@ async function cardLayout(page, columns) {
         await page.evaluate(() => document.fonts.ready);
         if (route === "/" || route === "/guides")
           await cardLayout(page, columns);
-        if (route === "/extensions/autoplaystopper") {
+        if (
+          route.startsWith("/extensions/") ||
+          route.startsWith("/wordpress/")
+        ) {
           await cardLayout(page, 1);
           const span = await page
             .locator(".guide-card")
@@ -151,7 +158,7 @@ async function cardLayout(page, columns) {
     }
     assert.deepEqual(errors, [], "No browser exceptions");
     console.log(
-      "PASS: home guides, handbook, single product guide, all three articles, responsive computed styles, and client navigation.",
+      "PASS: home guides, handbook, single product guides, all five articles, responsive computed styles, and client navigation.",
     );
   } finally {
     await browser.close();

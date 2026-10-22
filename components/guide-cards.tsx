@@ -1,27 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
-import { guides, guidePath } from "@/lib/guides";
-import { findExtension } from "@/lib/extensions";
+import { guides, guidePath, guideProduct } from "@/lib/guides";
 import { ActionLink, Eyebrow, Icon } from "./ui";
 
-export function GuideCards({ extensionSlug }: { extensionSlug?: string }) {
-  const selected = extensionSlug
-    ? guides.filter((guide) => guide.extensionSlug === extensionSlug)
-    : guides;
+type GuideFilter = { extensionSlug?: string; pluginSlug?: string };
+export function GuideCards({ extensionSlug, pluginSlug }: GuideFilter) {
+  const selected = pluginSlug
+    ? guides.filter((guide) => guide.pluginSlug === pluginSlug)
+    : extensionSlug
+      ? guides.filter((guide) => guide.extensionSlug === extensionSlug)
+      : guides;
   return (
-    <div className={`guide-grid${extensionSlug ? " guide-grid-single" : ""}`}>
+    <div
+      className={`guide-grid${extensionSlug || pluginSlug ? " guide-grid-single" : ""}`}
+    >
       {selected.map((guide) => {
-        const extension = findExtension(guide.extensionSlug)!;
+        const product = guideProduct(guide);
         return (
           <article className="guide-card" key={guide.slug}>
             <div className="guide-card-label">
-              <Image
-                src={`/extensions/${extension.slug}/icon.png`}
-                alt=""
-                width={36}
-                height={36}
-              />
-              <Eyebrow>{extension.name} guide</Eyebrow>
+              <Image src={product.icon} alt="" width={36} height={36} />
+              <Eyebrow>
+                {product.platform} · {product.name}
+              </Eyebrow>
             </div>
             <div className="guide-card-copy">
               <h3>
@@ -39,7 +40,7 @@ export function GuideCards({ extensionSlug }: { extensionSlug?: string }) {
   );
 }
 
-export function GuidesSection({ extensionSlug }: { extensionSlug?: string }) {
+export function GuidesSection({ extensionSlug, pluginSlug }: GuideFilter) {
   if (
     extensionSlug &&
     !guides.some((guide) => guide.extensionSlug === extensionSlug)
@@ -55,10 +56,10 @@ export function GuidesSection({ extensionSlug }: { extensionSlug?: string }) {
           </h2>
         </div>
         <ActionLink href="/guides" variant="text">
-          All Chrome extension guides <Icon name="arrow" />
+          All product guides <Icon name="arrow" />
         </ActionLink>
       </div>
-      <GuideCards extensionSlug={extensionSlug} />
+      <GuideCards extensionSlug={extensionSlug} pluginSlug={pluginSlug} />
     </section>
   );
 }

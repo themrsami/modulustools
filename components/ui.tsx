@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { seoSuite } from "@/lib/wordpress";
 import type {
   ButtonHTMLAttributes,
   InputHTMLAttributes,
@@ -147,6 +148,19 @@ export function StoreLink({ href, name }: { href: string; name: string }) {
       aria-label={`Get ${name} for Chrome (opens in a new tab)`}
     >
       <Icon name="chrome" /> Get it for Chrome <Icon name="arrow" />
+    </a>
+  );
+}
+export function WordPressLink() {
+  return (
+    <a
+      href={seoSuite.storeUrl}
+      className="action action-primary wordpress-install"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Get ${seoSuite.name} on WordPress.org (opens in a new tab)`}
+    >
+      Get it on WordPress.org <Icon name="arrow" />
     </a>
   );
 }

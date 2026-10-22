@@ -4,8 +4,8 @@ import { ActionLink, Eyebrow, Icon } from "@/components/ui";
 import { BreadcrumbData } from "@/components/structured-data";
 
 export const metadata = pageMetadata(
-  "Chrome Extension Guides — Setup & Troubleshooting",
-  "Practical guides to Imagus hover previews, AutoplayStopper website rules, and opening or copying groups of links with Linkclump.",
+  "Chrome Extension & WordPress SEO Setup Guides",
+  "Set up Imagus, AutoplayStopper, Linkclump, DownAlbum, and ModulusTools SEO Suite with practical browser and WordPress guides, examples, and troubleshooting.",
   "/guides",
 );
 
@@ -28,22 +28,22 @@ export default function GuidesPage() {
       <header className="resource-heading">
         <Eyebrow>The Modulus Tools handbook</Eyebrow>
         <h1>
-          Make Chrome work <em>your way.</em>
+          Make your tools work <em>your way.</em>
         </h1>
         <p>
           Start with a task, not a settings panel. These guides explain the
-          controls in our extensions, everyday examples, and what to check when
-          a website behaves differently.
+          controls in our Chrome extensions and WordPress plugin, everyday
+          examples, and what to check when a website behaves differently.
         </p>
       </header>
       <GuideCards />
       <div className="resource-bottom">
         <p>
-          Need help with a particular page? Tell us the extension, website, and
+          Need help with a particular page? Tell us the product, website, and
           steps you tried.
         </p>
         <ActionLink href="/support" variant="secondary">
-          Get extension support <Icon name="arrow" />
+          Get product support <Icon name="arrow" />
         </ActionLink>
       </div>
     </main>

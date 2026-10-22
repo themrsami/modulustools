@@ -5,13 +5,19 @@ import {
   findGuide,
   guides,
   guidePath,
-  guideDate,
-  guideDisplayDate,
+  guidePublishedDate,
+  guideFormattedDate,
+  guideProduct,
 } from "@/lib/guides";
-import { findExtension, extensionPath, privacyPath } from "@/lib/extensions";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
-import { ActionLink, Eyebrow, Icon, StoreLink } from "@/components/ui";
+import {
+  ActionLink,
+  Eyebrow,
+  Icon,
+  StoreLink,
+  WordPressLink,
+} from "@/components/ui";
 import { BreadcrumbData, StructuredData } from "@/components/structured-data";
 
 export function generateStaticParams() {
@@ -34,8 +40,8 @@ export async function generateMetadata({
     openGraph: {
       ...metadata.openGraph,
       type: "article",
-      publishedTime: guideDate,
-      modifiedTime: guideDate,
+      publishedTime: guidePublishedDate(guide),
+      modifiedTime: guidePublishedDate(guide),
       authors: [site.name],
     },
   };
@@ -48,7 +54,8 @@ export default async function GuidePage({
 }) {
   const guide = findGuide((await params).slug);
   if (!guide) notFound();
-  const extension = findExtension(guide.extensionSlug)!;
+  const product = guideProduct(guide);
+  const date = guidePublishedDate(guide);
   return (
     <main id="main-content" className="container resource-page">
       <BreadcrumbData
@@ -65,9 +72,9 @@ export default async function GuidePage({
           headline: guide.title,
           description: guide.description,
           mainEntityOfPage: site.url + guidePath(guide.slug),
-          image: site.url + `/extensions/${extension.slug}/preview.png`,
-          datePublished: `${guideDate}T09:00:00+05:00`,
-          dateModified: `${guideDate}T09:00:00+05:00`,
+          image: site.url + product.image,
+          datePublished: `${date}T09:00:00+05:00`,
+          dateModified: `${date}T09:00:00+05:00`,
           author: {
             "@type": "Organization",
             name: site.name,
@@ -86,16 +93,18 @@ export default async function GuidePage({
         <span aria-hidden="true">/</span>
         <Link href="/guides">Guides</Link>
         <span aria-hidden="true">/</span>
-        <span>{extension.name}</span>
+        <span>{product.name}</span>
       </nav>
       <header className="resource-heading article-heading">
-        <Eyebrow>{extension.name} · Setup & troubleshooting</Eyebrow>
+        <Eyebrow>
+          {product.platform} · {product.name} · Setup & troubleshooting
+        </Eyebrow>
         <h1>{guide.title}</h1>
         <p>{guide.intro}</p>
         <div className="article-byline">
           By <Link href="/about">Modulus Tools</Link>
           <span aria-hidden="true">·</span>
-          <time dateTime={guideDate}>{guideDisplayDate}</time>
+          <time dateTime={date}>{guideFormattedDate(guide)}</time>
         </div>
       </header>
       <div className="article-layout">
@@ -109,18 +118,24 @@ export default async function GuidePage({
             ))}
           </nav>
           <div className="article-tool">
-            <strong>{extension.name} for Chrome</strong>
+            <strong>
+              {product.name} for {product.platform}
+            </strong>
             <p>
               Install the version covered by this guide from its official store
               listing.
             </p>
-            {extension.storeUrl && (
-              <StoreLink href={extension.storeUrl} name={extension.name} />
+            {product.platform === "WordPress" ? (
+              <WordPressLink />
+            ) : (
+              product.storeUrl && (
+                <StoreLink href={product.storeUrl} name={product.name} />
+              )
             )}
-            <ActionLink href={extensionPath(extension.slug)} variant="text">
+            <ActionLink href={product.path} variant="text">
               Explore the tool <Icon name="arrow" />
             </ActionLink>
-            <ActionLink href={privacyPath(extension.slug)} variant="text">
+            <ActionLink href={product.privacyPath} variant="text">
               Privacy policy <Icon name="shield" />
             </ActionLink>
           </div>
@@ -146,8 +161,8 @@ export default async function GuidePage({
             <h2>Still need a hand?</h2>
             <p>
               This guide describes the Modulus Tools interface. Website
-              compatibility and your configured profiles can affect the result.
-              For help, share the steps to reproduce the issue, not passwords or
+              compatibility and your configuration can affect the result. For
+              help, share the steps to reproduce the issue, not passwords or
               sensitive page content.
             </p>
             <ActionLink href="/support" variant="secondary">
@@ -158,7 +173,7 @@ export default async function GuidePage({
       </div>
       <section className="related-guides">
         <Eyebrow>Keep exploring</Eyebrow>
-        <h2>More ways to simplify your browser.</h2>
+        <h2>More practical product guides.</h2>
         <div>
           {guides
             .filter((item) => item.slug !== guide.slug)

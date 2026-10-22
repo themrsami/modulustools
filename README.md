@@ -1,6 +1,6 @@
 # Modulus Tools
 
-Small tools. More possibility. A branded home for seven focused Manifest V3 Chrome extensions and custom extension development.
+Small tools. More possibility. A branded home for seven focused Manifest V3 Chrome extensions, ModulusTools SEO Suite for WordPress, and custom extension development.
 
 - Website: [modulustools.com](https://modulustools.com)
 - Support & privacy contact: [support@modulustools.com](mailto:support@modulustools.com)
@@ -25,7 +25,7 @@ No environment variables, database, or email API key are required. Never commit 
 
 The site uses bespoke components in `components/ui.tsx`, a custom M monogram, Geist typography, and the extension palette: plum `#3A1E2B`, sage `#829E85`, and warm paper `#FAF5F6`. Semantic HTML is retained inside custom-styled components for keyboard and screen-reader support. Brand contact, canonical domain, and extension version (1.1.0) live in `lib/site.ts`.
 
-Routes include the searchable collection, seven extension pages, seven individual privacy pages, the privacy center, website/contact privacy, support, a custom-extension quote brief, an about page, and a handbook with three guides. The site has 24 content routes. Canonicals, page-specific social metadata on product and editorial pages, robots.txt, sitemap.xml, and a branded 404 are included.
+Routes include the searchable Chrome collection, seven extension pages and their privacy pages, a separate WordPress product and privacy page, the privacy center, website/contact privacy, support, a custom-extension quote brief, an about page, and five practical guides. The site has 28 content routes. Canonicals, page-specific social metadata, robots.txt, sitemap.xml, and a branded 404 are included. WordPress products are not presented as Chrome extensions; platform labels and install destinations remain distinct.
 
 ## Quotes and support
 
@@ -51,22 +51,37 @@ The extension descriptions, permissions, and data-handling disclosures are centr
 
 ### Live install links
 
-These three published listing links were supplied by the owner on October 18, 2026. They appear on collection cards, product pages, and matching guides. Account and locale query parameters are intentionally omitted.
+These four published listing links were supplied by the owner (the first three on October 18, DownAlbum on October 22, 2026). They appear on collection cards, product pages, and matching guides. Account and locale query parameters are intentionally omitted.
 
 | Extension       | Chrome Web Store listing                                                                                             |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Imagus          | [Install Imagus](https://chromewebstore.google.com/detail/imagus/bdlicplmkecjmlefjndmgfgcdnilocio)                   |
 | AutoplayStopper | [Install AutoplayStopper](https://chromewebstore.google.com/detail/autoplaystopper/njbikmhihfdomkfimalmkfcnmjcooihp) |
 | Linkclump       | [Install Linkclump](https://chromewebstore.google.com/detail/linkclump/leophljmgneicoeeclgggbojeajbdbio)             |
+| DownAlbum       | [Install DownAlbum](https://chromewebstore.google.com/detail/downalbum/lokcefdcipipcemdpcndendbdjbmacpk)             |
 
-The other four tools are labeled not yet available. Add a `storeUrl` in `lib/extensions.ts` only after its public listing is available. Do not link to a developer-dashboard draft. DownAlbum’s policy now reflects package 1.1.1 without the unnecessary `tabs` permission; the remaining policy versions default to 1.1.0.
+The other three Chrome tools are labeled not yet available. Add a `storeUrl` in `lib/extensions.ts` only after its public listing is available. Do not link to a developer-dashboard draft. DownAlbum’s page and policy reflect package 1.1.1 without the unnecessary `tabs` permission; the remaining policy versions default to 1.1.0.
+
+## WordPress: ModulusTools SEO Suite
+
+- Product: [/wordpress/modulustools-seo-suite](https://modulustools.com/wordpress/modulustools-seo-suite)
+- Install: [WordPress.org directory](https://wordpress.org/plugins/modulustools-seo-suite/)
+- Setup: [WordPress SEO setup guide](https://modulustools.com/guides/set-up-modulustools-seo-suite-wordpress)
+- Privacy: [/privacy/modulustools-seo-suite](https://modulustools.com/privacy/modulustools-seo-suite)
+- Public help: [WordPress.org support forum](https://wordpress.org/support/plugin/modulustools-seo-suite/)
+
+Plugin information is centralized in `lib/wordpress.ts`. Version 1.2.2, WordPress 6.5+, PHP 8.2+, and GPLv2-or-later were checked against the public directory and local `D:\wp-plugin\trunk` source on October 22, 2026. Features include metadata, sitemaps, schema, redirects/404 logs, internal-link checks, crawler output, and optional drafting. No plugin source, released ZIP, or extension package is changed by this website update.
+
+Keep privacy claims scoped to the product. SEO settings, redirects, 404 logs, and crawler logs live in the WordPress database. Source initialization in 1.2.2 enables IndexNow by default; the guide and policy explicitly disclose its URL notifications and any configured webhook, rather than claiming all integrations are off initially. Configured AI services may receive a post title, excerpt, focus keyword, and requested task when a draft is requested. Local draft suggestions do not need an external account. Uninstall retains data unless the cleanup option is enabled. Recheck released defaults and network behavior before changing these disclosures.
+
+WordPress plugin features and editorial scores do not guarantee Google rankings, indexing, traffic, or rich results. llms.txt is not represented as a Google ranking mechanism. SoftwareApplication JSON-LD describes visible requirements, the free plugin offer, license, and directory identity; it does not invent reviews or ratings or promise rich-result eligibility.
 
 ## Search visibility & editorial maintenance
 
-- Three original, task-focused guides in `lib/guides.ts` cover Imagus hover previews, AutoplayStopper modes, and Linkclump bulk-link actions. Controls and defaults were checked against the local extension sources. Keep guides aligned with the package actually released; they do not promise universal website compatibility.
+- Five original, task-focused guides in `lib/guides.ts` cover Imagus hover previews, AutoplayStopper modes, Linkclump bulk-link actions, DownAlbum galleries, and WordPress SEO Suite setup. Controls and defaults were checked against local product sources. Keep guides aligned with the package actually released; they do not promise universal website compatibility. The two new guides use October 22, 2026 dates; the original three retain their October 18 dates.
 - Product and guide pages have descriptive titles, canonical URLs, social metadata, and crawlable links. The home page links to the handbook; guides link to the product, privacy policy, support, and related guides.
-- JSON-LD describes the real organization, website, visible breadcrumbs, and guide articles. It contains no invented ratings, reviews, download counts, or guaranteed rich results. Article bylines and dates are visible. There is no FAQ or HowTo rich-result markup.
-- The sitemap includes all 24 content routes. Update `lastModified` only when the corresponding page changes meaningfully, not on every build. The existing Search Console domain property can discover the updated sitemap at `/sitemap.xml`; this code change does not claim a new indexing request or guaranteed inclusion.
+- JSON-LD describes the real organization, website, visible breadcrumbs, guide articles, and the WordPress SoftwareApplication. It contains no invented ratings, reviews, download counts, or guaranteed rich results. Article bylines and dates are visible. There is no FAQ or HowTo rich-result markup.
+- The sitemap includes all 28 content routes. Update `lastModified` only when the corresponding page changes meaningfully, not on every build. The existing Search Console domain property can discover the updated sitemap at `/sitemap.xml`; this code change does not claim a new indexing request or guaranteed inclusion.
 - Follow Google’s [people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [crawlable link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable). Search improvements require crawling and evaluation over time; positions and traffic are not guaranteed.
 - Useful next editorial additions should answer actual support questions or document tested workflows. Do not bulk-generate near-duplicate keyword pages or buy manipulative backlinks. Review Search Console impressions, queries, and indexed pages before deciding what to write next.
 
@@ -96,8 +111,10 @@ Do not change unrelated projects, DNS records, or email services. Domain propaga
 
 For layout regression checks, install a Playwright browser once with `pnpm exec playwright install chromium`, start the production server on port 3110, and run `pnpm test:guides`. To use an already installed Chrome, set `PLAYWRIGHT_CHANNEL=chrome`. Set `MODULUS_TEST_URL=https://modulustools.com` to run the same checks against production. These tests verify computed grids, card borders/radii/padding, typography, sidebar placement, content width, client navigation, and overflow at 390, 768, 1024, and 1440 pixels. Screenshots are saved under ignored `.qa/guide-layout/`. They never install an extension, contact a store listing, or send email.
 
-Run lint and a production build before pushing. Verify all 24 content routes at desktop and mobile sizes, artwork loading, all three exact install destinations, unpublished availability labels, guide navigation/structured data, catalog filters/search, no-results reset, copy-policy links, custom quote validation and encoded draft, canonical URLs, robots/sitemap, and unknown-route 404s. No email should be sent by automated UI tests.
+Run `pnpm test:products` against the same production server for a 28-route metadata, responsive-overflow, image, JSON-LD, date, install-destination, search/filter, no-JavaScript crawlability, sitemap, and 404 check. Screenshots are saved under ignored `.qa/products/`. `pnpm test:guides` now covers all five guides and single-guide sections on Chrome and WordPress product pages.
 
-The site is independent of Google. Chrome and Chrome Web Store are Google trademarks. The brand copyright covers Modulus Tools’ original website and interface work; it does not replace third-party extension or font licenses.
+Run lint and a production build before pushing. Verify all 28 content routes, four exact Chrome install destinations, the separate WordPress.org install link, three unpublished availability labels, guide navigation/structured data, catalog filters/search, no-results reset, copy-policy links, custom quote validation and encoded draft, canonical URLs, robots/sitemap, and unknown-route 404s. No email should be sent by automated UI tests.
+
+The site is independent of Google and the WordPress project. Chrome and Chrome Web Store are Google trademarks; WordPress is a WordPress Foundation trademark. Brand copyright covers Modulus Tools’ original website and interface work; it does not replace the SEO plugin’s GPL license or third-party extension/font licenses.
 
 © 2026 Modulus Tools. All rights reserved.

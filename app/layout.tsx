@@ -14,17 +14,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Modulus Tools — A more thoughtful browser",
+    default: "Modulus Tools — Chrome Extensions & WordPress SEO",
     template: "%s | Modulus Tools",
   },
   description:
-    "Seven focused Chrome extensions for images, audio, links, JSON, and everyday work. Explore our collection, read individual privacy policies, or request a custom extension.",
+    "Focused Chrome extensions and ModulusTools SEO Suite for WordPress. Explore published tools, setup guides, privacy policies, and custom extension development.",
   icons: { icon: "/brand.svg", apple: "/apple-icon.png" },
   twitter: { card: "summary_large_image", images: ["/social-card.png"] },
   openGraph: {
     title: "Modulus Tools",
     description:
-      "Small tools. More possibility. Seven focused extensions for your everyday browser.",
+      "Small tools. More possibility. Chrome extensions and a modular WordPress SEO plugin.",
     type: "website",
     siteName: site.name,
     images: [

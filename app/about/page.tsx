@@ -5,8 +5,8 @@ import { BreadcrumbData } from "@/components/structured-data";
 import { site, contactHref } from "@/lib/site";
 
 export const metadata = pageMetadata(
-  "About Modulus Tools — Focused Chrome Extensions",
-  "Meet Modulus Tools: an independent home for focused Chrome extensions, practical browser guides, transparent privacy policies, and custom extension development.",
+  "About Modulus Tools — Browser & WordPress Tools",
+  "Meet Modulus Tools: focused Chrome extensions, a WordPress SEO plugin, practical product guides, transparent privacy policies, and custom extension development.",
   "/about",
 );
 
@@ -32,9 +32,10 @@ export default function AboutPage() {
           <em>A more thoughtful browser.</em>
         </h1>
         <p>
-          Modulus Tools is an independent home for focused Chrome extensions and
-          custom browser workflows. Our collection brings together tools for
-          images, playback, links, data, and everyday work.
+          Modulus Tools is an independent home for focused Chrome extensions,
+          WordPress tools, and custom browser workflows. Alongside tools for
+          images, playback, links, and data, ModulusTools SEO Suite helps site
+          owners manage WordPress SEO.
         </p>
       </header>
       <div className="about-grid">
@@ -54,9 +55,9 @@ export default function AboutPage() {
           <Eyebrow>02 / Clear about access</Eyebrow>
           <h2>Privacy in plain language.</h2>
           <p>
-            Our extension policies explain what stays on your device, what
-            permissions are used, and when an action contacts another website.
-            Local processing does not mean the websites you visit stop making
+            Our product policies distinguish browser-local extension data from
+            WordPress database records and optional external integrations. Local
+            processing does not mean a website or media host stops receiving
             network requests.
           </p>
           <ActionLink href="/privacy" variant="text">
@@ -67,12 +68,16 @@ export default function AboutPage() {
           <Eyebrow>03 / Practical help</Eyebrow>
           <h2>Guidance that gets specific.</h2>
           <p>
-            Our guides describe controls in the Modulus Tools versions, with
-            examples and limitations. If a site behaves differently, contact us
-            with the extension name and steps to reproduce the problem.
+            Our browser and WordPress guides describe controls in the Modulus
+            Tools versions, with examples and limitations. If a site behaves
+            differently, contact us with the extension name and steps to
+            reproduce the problem.
           </p>
           <ActionLink href="/guides" variant="text">
             Browse the handbook <Icon name="arrow" />
+          </ActionLink>
+          <ActionLink href="/wordpress/modulustools-seo-suite" variant="text">
+            Explore the WordPress SEO plugin <Icon name="arrow" />
           </ActionLink>
         </section>
         <section>
